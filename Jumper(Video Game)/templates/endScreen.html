@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Congradulations</title>
+    <style>
+      body {
+        background-color: #000000;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        font-size: 5em;
+        margin-top: 100px;
+      }
+      p {
+        font-size: 2em;
+        margin-top: 50px;
+      }
+      button {
+        font-size: 2em;
+        padding: 20px;
+        margin-top: 50px;
+        background-color: #FFFFFF;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .night {
+        background-color: #000000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .star {
+        position: absolute;
+        top: calc(100% * var(--y));
+        left: calc(100% * var(--x));
+        width: 5px;
+        height: 5px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+        animation: shooting-star var(--duration) linear infinite;
+        animation-delay: calc(-1s * var(--delay));
+      }
+      @keyframes shooting-star {
+        to {
+          transform: translate(-100%, 100%);
+        }
+      }
+      .star:nth-child(1) {
+        --x: 0.1;
+        --y: 0.1;
+        --duration: 10s;
+        --delay: 0;
+      }
+      .star:nth-child(2) {
+        --x: 0.2;
+        --y: 0.3;
+        --duration: 5s;
+        --delay: -2s;
+      }
+      .star:nth-child(3) {
+        --x: 0.4;
+        --y: 0.2;
+        --duration: 8s;
+        --delay: -3s;
+      }
+      .star:nth-child(4) {
+        --x: 0.6;
+        --y: 0.4;
+        --duration: 6s;
+        --delay: -1s;
+      }
+      .star:nth-child(5) {
+        --x: 0.8;
+        --y: 0.3;
+        --duration: 4s;
+        --delay: -4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="night">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+    <h1>Congratulations</h1>
+    <p>You Have Defeated Gorn Boss</p>
+    <button onclick="restartGame()">Restart</button>
+    <button onclick="goToMainMenu()">Main Menu</button>
+
+    <script>
+      function restartGame() {
+        window.location.href = "gamePage";
+      }
+
+      function goToMainMenu() {
+        window.location.href = "/";
+      }
+
+
+    </script>
+  </body>
+</html>
